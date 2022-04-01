@@ -30,6 +30,20 @@ namespace Hittahem.Mvc.Controllers
             return View(model);
         }
 
+        public IActionResult Details(int i)
+        {
+            var model = new HomeDetailsViewModel(
+                index: i,
+                Homes: db.Homes.ToList(),
+                Streets: db.Streets.ToList(),
+                Users: db.Users.ToList(),
+                Municipalities: db.Municipalities.ToList(),
+                OwnershipTypes: db.OwnershipTypes.ToList(),
+                HomeViewings: db.HomeViewings.ToList()
+                );
+            return View(model);
+        }
+
         public IActionResult Privacy()
         {
             return View();

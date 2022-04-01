@@ -1,4 +1,5 @@
-﻿@{
+﻿@model HomeIndexViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 <body>
@@ -44,7 +45,7 @@
         @foreach (Home h in Model.Homes)
         {
             <li>
-                @h.Street
+                @h.Street.Name
             </li>
             <li>
                 @h.Price

@@ -1,8 +1,8 @@
 ﻿namespace Hittahem.Mvc.Models
-    
 {
-    public record HomeIndexViewModel
+    public record HomeDetailsViewModel
     (
+        int index,
         IList<Home> Homes,
         IList<Street> Streets,
         IList<ApplicationUser> Users,

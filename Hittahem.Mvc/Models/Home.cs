@@ -63,6 +63,5 @@ namespace Hittahem.Mvc.Models
             HomeViewings = new List<HomeViewing>();
             InterestedUsers = new List<InterestedUser>();
         }
-
     }
 }
