@@ -4,12 +4,57 @@
 }
 <body>
 
-<div class="container">
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-4">
+        <h1 class="text-header">Välkommen till Hitta Hem</h1>
+        <div class="search-container container-fluid">
+        <form asp-action="Index" class="col-md-4 my-1 p-2">
+            <div class="searchbar my-3">
+                <input type="text" name="searchString" class="bi bi-search" placeholder="Sök Ort" />
+            </div>
+            <div class="filter-frontpage">
+           @* man ska kunna kryssa i flera alternativ för hustyp *@
+           @* max pris för huset *@
+           @* min rum och min boarea *@
+            </div>
+        </form>
+        </div>    
+    </div>
+    <div class="col-md-8 ">
+        <div class="img-frontpage">
+           <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
+        </div>
+    </div>
+  </div>
+ 
+     
+ 
+</div>
+</body>
+
+@*<div class="container">
   <div class="row">
     <div class="col-md-4 mb-3">
      <header>
         <h1 class="text-header">Välkommen till Hitta Hem</h1>
      </header>
+    </div>
+    <div class="col-md-4 mb-3">
+        <form asp-action="Index" class="col-md-4 my-1 p-2">
+            <div class="searchbar my-3">
+            <input type="text" name="searchString" placeholder=<i class="bi bi-search"></i>"Sök Ort" />
+            </div>
+            <div class="col-md-8">
+                 <div class="img-frontpage">
+                 <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
+                 </div>
+            </div>
+    <div></div>
+            <div class="filter- my-1">
+
+            </div>
+        </form>
     </div>
    
     <form asp-action="Index" class="col-md-4 my-1 p-2">
@@ -25,7 +70,6 @@
         <div class="my-1">
             <input type="submit" value="Sök" class="btn btn-home" />
         </div>
-
         
     </form>
 
@@ -34,7 +78,7 @@
             <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
         </div>
     </div>
-  </div>
+  
 </div>
 
 
@@ -59,4 +103,4 @@
         }
     </ul>
     
-</div>
+</div>*@
