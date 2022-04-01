@@ -7,6 +7,12 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.logga {
+    width: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
 a {
   color: #0077cc;
 }

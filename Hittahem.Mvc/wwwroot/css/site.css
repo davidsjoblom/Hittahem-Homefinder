@@ -1,18 +1,63 @@
 html {
-  font-size: 14px;
+    font-size: 16px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-size: 20px;
+    color: #783937FF;
+}
+.logga {
+    width: 20px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 20px;
+    }
+
+    nav-item {
+        align-items: end;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+        font-size: 20px;
+        color: #783937FF;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: Georgia;
+    text-align: center;
+}
+
+/*Använd text-header för alla rubriker */
+.text-header {
+    color: #783937FF;
+}
+
+.btn-home {
+    color: #fff;
+    background-color: #783937FF;
+    border-color: #783937FF;
+}
+/*Kan bli fel på alla andra bilder*/
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.img-frontpage {
+    visibility: hidden;
+}
+
+@media (min-width: 768px) {
+    .img-frontpage {
+        visibility: visible;
+    }
 }

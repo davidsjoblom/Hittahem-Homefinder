@@ -1,8 +1,40 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<body>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-3">
+     <header>
+        <h1 class="text-header">Välkommen till Hitta Hem</h1>
+     </header>
+    </div>
+   
+    <form asp-action="Index" class="col-md-4 my-1 p-2">
+        <div class="my-1">
+            <input type="text" name="searchString" placeholder="Sök Ort" class="form-control-sm col-12" />
+        </div>
+        <div class="filter my-1">
+        </div>
+        <label for="Price">Utgångspris:</label><br>
+        <div class="my-1">
+            <input type="number" name="minPrice" step="1" class="form-control-sm col-5" />&nbsp;&#8212;&nbsp;<input type="number" name="maxPrice" step="1" class="form-control-sm col-5" />
+        </div>
+        <div class="my-1">
+            <input type="submit" value="Sök" class="btn btn-home" />
+        </div>
+
+        
+    </form>
+
+    <div class="col-md-8">
+        <div class="img-frontpage">
+            <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
+        </div>
+    </div>
+  </div>
 </div>
+
+
+</body>
