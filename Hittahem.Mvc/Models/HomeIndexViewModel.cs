@@ -11,6 +11,6 @@ namespace Hittahem.Mvc.Models
         IList<Municipality> Municipalities,
         IList<OwnershipType> OwnershipTypes,
         IList<HomeViewing> HomeViewings
-        //om det behövs mer data skriv det här bara
+    //om det behövs mer data skriv det här bara
     );
 }
