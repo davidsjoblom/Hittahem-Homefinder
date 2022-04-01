@@ -7,6 +7,7 @@ namespace Hittahem.Mvc.Models
     {
         [Key]
         public int Id { get; set; }
+        [Column(TypeName = "money")]
         public int Price { get; set; }
         [Column(TypeName = "ntext")]
         public string? Description { get; set; }

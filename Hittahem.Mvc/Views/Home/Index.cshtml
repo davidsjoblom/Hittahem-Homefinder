@@ -38,3 +38,24 @@
 
 
 </body>
+
+<div>
+    <ul>
+        @foreach (Home h in Model.Homes)
+        {
+            <li>
+                @h.Street
+            </li>
+            <li>
+                @h.Price
+            </li>
+            <li>
+                @(h.User is null ? "no mäklare" : h.User.UserName)
+            </li>
+            <li>
+                @(h.Municipality is null ? "no mäklare" : h.Municipality.Name)
+            </li>
+        }
+    </ul>
+    
+</div>
