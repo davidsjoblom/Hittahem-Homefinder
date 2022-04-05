@@ -185,7 +185,7 @@ namespace Hittahem.Mvc.Migrations
                             Rooms = 1,
                             StreetId = 1,
                             StreetNr = "69",
-                            TimePosted = new DateTime(2022, 4, 5, 9, 4, 27, 627, DateTimeKind.Utc).AddTicks(9285),
+                            TimePosted = new DateTime(2022, 4, 5, 9, 19, 22, 48, DateTimeKind.Utc).AddTicks(7251),
                             UserId = 1
                         });
                 });
@@ -204,7 +204,7 @@ namespace Hittahem.Mvc.Migrations
                     b.Property<int>("HomeId")
                         .HasColumnType("int");
 
-                    b.Property<byte[]>("Image")
+                    b.Property<byte[]>("ImageUrl")
                         .HasColumnType("image");
 
                     b.HasKey("Id");
@@ -238,7 +238,7 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 4, 5, 11, 4, 27, 627, DateTimeKind.Local).AddTicks(9317),
+                            Date = new DateTime(2022, 4, 5, 11, 19, 22, 48, DateTimeKind.Local).AddTicks(7297),
                             HomeId = 1
                         });
                 });

@@ -9,6 +9,33 @@ namespace Hittahem.Mvc.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.RenameColumn(
+                name: "Image",
+                table: "HomeImages",
+                newName: "ImageUrl");
+
+            migrationBuilder.UpdateData(
+                table: "HomeViewings",
+                keyColumn: "Id",
+                keyValue: 1,
+                column: "Date",
+                value: new DateTime(2022, 4, 5, 11, 19, 22, 48, DateTimeKind.Local).AddTicks(7297));
+
+            migrationBuilder.UpdateData(
+                table: "Homes",
+                keyColumn: "Id",
+                keyValue: 1,
+                column: "TimePosted",
+                value: new DateTime(2022, 4, 5, 9, 19, 22, 48, DateTimeKind.Utc).AddTicks(7251));
+        }
+
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.RenameColumn(
+                name: "ImageUrl",
+                table: "HomeImages",
+                newName: "Image");
+
             migrationBuilder.UpdateData(
                 table: "HomeViewings",
                 keyColumn: "Id",
@@ -22,23 +49,6 @@ namespace Hittahem.Mvc.Migrations
                 keyValue: 1,
                 column: "TimePosted",
                 value: new DateTime(2022, 4, 5, 9, 4, 27, 627, DateTimeKind.Utc).AddTicks(9285));
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.UpdateData(
-                table: "HomeViewings",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "Date",
-                value: new DateTime(2022, 4, 1, 9, 19, 41, 477, DateTimeKind.Local).AddTicks(2431));
-
-            migrationBuilder.UpdateData(
-                table: "Homes",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "TimePosted",
-                value: new DateTime(2022, 4, 1, 7, 19, 41, 477, DateTimeKind.Utc).AddTicks(2406));
         }
     }
 }

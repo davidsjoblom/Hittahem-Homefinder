@@ -7,7 +7,7 @@ namespace Hittahem.Mvc.Models
     {
         [Key]
         public int Id { get; set; }
-        [Column(TypeName = "image")]
+
         [Display(Name = "Image URL")]
         public string? ImageUrl { get; set; }
         public string? Caption { get; set; }
