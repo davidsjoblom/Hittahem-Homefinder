@@ -19,7 +19,7 @@ namespace Hittahem.Mvc.Controllers
 
         public IActionResult Index()
         {
-            HomeIndexViewModel model = new HomeIndexViewModel( 
+            HomeIndexViewModel model = new ( 
                 Homes: db.Homes.ToList(),
                 Streets: db.Streets.ToList(),
                 Users: db.Users.ToList(),
@@ -33,7 +33,7 @@ namespace Hittahem.Mvc.Controllers
         public IActionResult Details(int i)
         {
             var model = new HomeDetailsViewModel(
-                index: i,
+                Index: i,
                 Homes: db.Homes.ToList(),
                 Streets: db.Streets.ToList(),
                 Users: db.Users.ToList(),
