@@ -8,7 +8,8 @@ namespace Hittahem.Mvc.Models
         [Key]
         public int Id { get; set; }
         [Column(TypeName = "image")]
-        public byte[]? Image { get; set; }
+        [Display(Name = "Image URL")]
+        public string? ImageUrl { get; set; }
         public string? Caption { get; set; }
 
         public int HomeId { get; set; }
