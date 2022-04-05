@@ -1,14 +1,12 @@
 ﻿namespace Hittahem.Mvc.Models
-    
+
 {
-    public record HomeIndexViewModel
-    (
-        IList<Home> Homes,
-        IList<Street> Streets,
-        IList<ApplicationUser> Users,
-        IList<Municipality> Municipalities,
-        IList<OwnershipType> OwnershipTypes,
-        IList<HomeViewing> HomeViewings
-    //om det behövs mer data skriv det här bara
-    );
+    public class HomeIndexViewModel
+    {
+        public IEnumerable<Home>? SearchResultHomes { get; set; }
+        public IEnumerable<Street>? Streets { get; set; }
+        public IEnumerable<Municipality>? Municipalities { get; set; }
+        public IEnumerable<OwnershipType>? OwnershipTypes { get; set; }
+        public IEnumerable<HousingType>? HousingTypes { get; set;}
+    }
 }

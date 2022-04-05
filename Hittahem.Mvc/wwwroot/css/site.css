@@ -41,19 +41,36 @@ body {
     color: #783937FF;
 }
 
+/*.searchbar {
+    border: solid #783937FF;
+    width: 100%;
+}*/
+.search-container {
+    border: solid;
+    border-color: #783937FF;
+    border-radius: 1rem;
+}
+
 .btn-home {
     color: #fff;
+    width: 9rem;
     background-color: #783937FF;
     border-color: #783937FF;
+    border-radius: 1rem;
 }
-/*Kan bli fel på alla andra bilder*/
-img {
-    max-width: 100%;
-    height: auto;
+
+.btn-home-line {
+    border-color: #783937FF;
+    border-radius: 1rem;
 }
 
 .img-frontpage {
+    height: auto;
     visibility: hidden;
+}
+
+.img-house {
+    max-width: 50rem;
 }
 
 @media (min-width: 768px) {

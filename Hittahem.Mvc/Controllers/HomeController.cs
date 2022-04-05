@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Hittahem.Mvc.Data;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace Hittahem.Mvc.Controllers
 {
@@ -16,19 +16,65 @@ namespace Hittahem.Mvc.Controllers
             _logger = logger;
             db = injectedContext;
         }
-
-        public IActionResult Index()
+        /// <summary>
+        /// Första medtoden som kallas när Index startar.
+        /// Då vill vi fylla dropsdowns med det datan vi har 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult Index(HomeIndexViewModel model = null)
         {
-            HomeIndexViewModel model = new ( 
-                Homes: db.Homes.ToList(),
-                Streets: db.Streets.ToList(),
-                Users: db.Users.ToList(),
-                Municipalities: db.Municipalities.ToList(),
-                OwnershipTypes: db.OwnershipTypes.ToList(),
-                HomeViewings: db.HomeViewings.ToList()
-                );
+            if (model.HousingTypes is null)
+            {
+                model = new HomeIndexViewModel
+                {
+                    Streets = db.Streets.ToList(),
+                    Municipalities = db.Municipalities.ToList(),
+                    OwnershipTypes = db.OwnershipTypes.ToList(),
+                    HousingTypes = db.HousingTypes.ToList()
+                };
+            }            
+
             return View(model);
         }
+
+        /// <summary>
+        /// Detta är metoden som vi skickar in alla parameters som vi vill söka med.
+        /// Dvs värden från dropdown samt Ort sökfölt aka searchMunicipalityString
+        /// </summary>
+        /// <param name="searchMunicipalityString"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Search(string searchMunicipalityString)
+        {
+            var homes = db.Homes.ToList();
+
+            var returnValue = homes.Where(h => h.Municipality != null && h.Municipality.Name.Contains(searchMunicipalityString));
+
+            HomeIndexViewModel indexViewModel = new HomeIndexViewModel
+            {
+                SearchResultHomes = returnValue,
+                Streets = db.Streets.ToList(),
+                Municipalities = db.Municipalities.ToList(),
+                OwnershipTypes = db.OwnershipTypes.ToList()
+            };
+
+            return RedirectToAction("Index",indexViewModel);
+        }
+
+        //public IActionResult Index(string searchString)
+        //{
+        //    HomeIndexViewModel model = new HomeIndexViewModel( 
+        //        Homes: db.Homes.ToList(),
+        //        Streets: db.Streets.ToList(),
+        //        Users: db.Users.ToList(),
+        //        Municipalities: db.Municipalities.ToList(),
+        //        OwnershipTypes: db.OwnershipTypes.ToList(),
+        //        HomeViewings: db.HomeViewings.ToList()
+        //        );
+
+        //    return View(model);
+        //}
 
         public IActionResult Details(int i)
         {
