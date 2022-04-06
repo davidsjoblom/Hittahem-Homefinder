@@ -1,4 +1,4 @@
-using Hittahem.Mvc.Data;
+    using Hittahem.Mvc.Data;
 using Hittahem.Mvc.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +19,14 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "TodoApi", Version = "v1" });
 });
 
+
+
+//Google Authentication service
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+});
 
 
 var app = builder.Build();

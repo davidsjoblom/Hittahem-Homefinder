@@ -2,7 +2,7 @@
 {
     public record HomeDetailsViewModel
     (
-        int index,
+        int Index,
         IList<Home> Homes,
         IList<Street> Streets,
         IList<ApplicationUser> Users,
