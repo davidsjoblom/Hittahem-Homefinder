@@ -5,7 +5,39 @@
 }
 
 <h1>Index</h1>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<body>
 
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-4">
+        <h1 class="text-header">Välkommen till Hitta Hem</h1>
+        <div class="search-container container-fluid">
+        <form asp-action="Index" class="col-md-4 my-1 p-2">
+            <div class="searchbar my-3">
+                <input type="text" name="searchString" class="bi bi-search" placeholder="Sök Ort" />
+            </div>
+            <div class="filter-frontpage">
+           @* man ska kunna kryssa i flera alternativ för hustyp *@
+           @* max pris för huset *@
+           @* min rum och min boarea *@
+            </div>
+        </form>
+        </div>    
+    </div>
+    <div class="col-md-8 ">
+        <div class="img-frontpage">
+           <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
+        </div>
+    </div>
+  </div>
+ 
+     
+ 
+</div>
+</body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -88,19 +120,19 @@
                 @Html.DisplayFor(modelItem => item.StreetNr)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Street.Id)
+                @Html.DisplayFor(modelItem => item.Street.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.User.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Municipality.Id)
+                @Html.DisplayFor(modelItem => item.Municipality.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HousingType.Id)
+                @Html.DisplayFor(modelItem => item.HousingType.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnershipType.Id)
+                @Html.DisplayFor(modelItem => item.OwnershipType.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
