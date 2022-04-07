@@ -31,7 +31,8 @@ namespace Hittahem.Mvc.Controllers
                     Streets = db.Streets.ToList(),
                     Municipalities = db.Municipalities.ToList(),
                     OwnershipTypes = db.OwnershipTypes.ToList(),
-                    HousingTypes = db.HousingTypes.ToList()
+                    HousingTypes = db.HousingTypes.ToList(),
+                    
                 };
             }            
 
@@ -44,12 +45,13 @@ namespace Hittahem.Mvc.Controllers
         /// </summary>
         /// <param name="searchMunicipalityString"></param>
         /// <returns></returns>
-        [HttpGet]
-        public async Task<IActionResult> Search(string searchMunicipalityString)
+        [HttpPost]
+        public IActionResult Search([FromForm] SearchFormModel searchModel)
         {
             var homes = db.Homes.ToList();
 
-            var returnValue = homes.Where(h => h.Municipality != null && h.Municipality.Name.Contains(searchMunicipalityString));
+            var returnValue = homes.Where(h => h.Municipality != null && h.Municipality.Name.Contains(searchModel.SearchMunicipality));
+                        
 
             HomeIndexViewModel indexViewModel = new HomeIndexViewModel
             {
@@ -57,6 +59,7 @@ namespace Hittahem.Mvc.Controllers
                 Streets = db.Streets.ToList(),
                 Municipalities = db.Municipalities.ToList(),
                 OwnershipTypes = db.OwnershipTypes.ToList()
+                
             };
 
             return RedirectToAction("Index",indexViewModel);
