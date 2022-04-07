@@ -8,12 +8,10 @@ namespace Hittahem.Mvc.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext db;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext injectedContext)
         {
-            _logger = logger;
             db = injectedContext;
         }
 
@@ -21,10 +19,10 @@ namespace Hittahem.Mvc.Controllers
         {
             HomeIndexViewModel model = new ( 
                 Homes: db.Homes.ToList(),
-                Streets: db.Streets.ToList(),
+                //Streets: db.Streets.ToList(),
                 Users: db.Users.ToList(),
-                Municipalities: db.Municipalities.ToList(),
-                OwnershipTypes: db.OwnershipTypes.ToList(),
+                //Municipalities: db.Municipalities.ToList(),
+                //OwnershipTypes: db.OwnershipTypes.ToList(),
                 HomeViewings: db.HomeViewings.ToList()
                 );
             return View(model);
@@ -35,10 +33,10 @@ namespace Hittahem.Mvc.Controllers
             var model = new HomeDetailsViewModel(
                 Index: i,
                 Homes: db.Homes.ToList(),
-                Streets: db.Streets.ToList(),
+                //Streets: db.Streets.ToList(),
                 Users: db.Users.ToList(),
-                Municipalities: db.Municipalities.ToList(),
-                OwnershipTypes: db.OwnershipTypes.ToList(),
+                //Municipalities: db.Municipalities.ToList(),
+                //OwnershipTypes: db.OwnershipTypes.ToList(),
                 HomeViewings: db.HomeViewings.ToList()
                 );
             return View(model);

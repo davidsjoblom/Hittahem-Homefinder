@@ -51,58 +51,6 @@ namespace Hittahem.Mvc.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HousingTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HousingTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Municipalities",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Municipalities", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "OwnershipTypes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OwnershipTypes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Streets",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Streets", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -215,72 +163,26 @@ namespace Hittahem.Mvc.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "ntext", nullable: true),
-                    Rooms = table.Column<int>(type: "int", nullable: false),
-                    LivingArea = table.Column<decimal>(type: "decimal(18,4)", nullable: true),
-                    UninhabitableArea = table.Column<decimal>(type: "decimal(18,4)", nullable: true),
-                    GardenArea = table.Column<decimal>(type: "decimal(18,4)", nullable: true),
-                    BuildYear = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Rooms = table.Column<int>(type: "int", nullable: true),
+                    LivingArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
+                    UninhabitableArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
+                    GardenArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
+                    BuildYear = table.Column<int>(type: "int", nullable: true),
                     TimePosted = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    StreetNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StreetId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false),
-                    MunicipalityId = table.Column<int>(type: "int", nullable: false),
-                    HousingTypeId = table.Column<int>(type: "int", nullable: false),
-                    OwnershipTypeId = table.Column<int>(type: "int", nullable: false)
+                    Adress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HousingType = table.Column<int>(type: "int", nullable: false),
+                    OwnershipType = table.Column<int>(type: "int", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AgentId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Homes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Homes_AspNetUsers_UserId",
-                        column: x => x.UserId,
+                        name: "FK_Homes_AspNetUsers_AgentId",
+                        column: x => x.AgentId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Homes_HousingTypes_HousingTypeId",
-                        column: x => x.HousingTypeId,
-                        principalTable: "HousingTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Homes_Municipalities_MunicipalityId",
-                        column: x => x.MunicipalityId,
-                        principalTable: "Municipalities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Homes_OwnershipTypes_OwnershipTypeId",
-                        column: x => x.OwnershipTypeId,
-                        principalTable: "OwnershipTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Homes_Streets_StreetId",
-                        column: x => x.StreetId,
-                        principalTable: "Streets",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "HomeImages",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Image = table.Column<byte[]>(type: "image", nullable: true),
-                    Caption = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    HomeId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HomeImages", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_HomeImages_Homes_HomeId",
-                        column: x => x.HomeId,
-                        principalTable: "Homes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -333,34 +235,14 @@ namespace Hittahem.Mvc.Migrations
                 values: new object[] { 1, 0, "3c27a053-4447-4aef-8220-95ff805603b0", "test@example.com", true, true, null, "TEST@EXAMPLE.COM", "TEST@EXAMPLE.COM", "AQAAAAEAACcQAAAAEP49exl7ynjFa5tsvI3t0wz+euWQTv/eYpnCmtMDS3hGw3LLkBSH+fWkAcenzVNsEA==", null, false, "2QIVNQYKHPKRPOXZPLLD24QJ242LMWLZ", false, "test@example.com" });
 
             migrationBuilder.InsertData(
-                table: "HousingTypes",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Lägenhet" });
-
-            migrationBuilder.InsertData(
-                table: "Municipalities",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Stockholm" });
-
-            migrationBuilder.InsertData(
-                table: "OwnershipTypes",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Bostadsrätt" });
-
-            migrationBuilder.InsertData(
-                table: "Streets",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Stockholmsvägen" });
-
-            migrationBuilder.InsertData(
                 table: "Homes",
-                columns: new[] { "Id", "BuildYear", "Description", "GardenArea", "HousingTypeId", "LivingArea", "MunicipalityId", "OwnershipTypeId", "Price", "Rooms", "StreetId", "StreetNr", "TimePosted", "UninhabitableArea", "UserId" },
-                values: new object[] { 1, null, "Fett trevligt jag svär", null, 1, 18.5m, 1, 1, 1000000, 1, 1, "69", new DateTime(2022, 4, 1, 7, 19, 41, 477, DateTimeKind.Utc).AddTicks(2406), null, 1 });
+                columns: new[] { "Id", "Adress", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
+                values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 0, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 7, 11, 55, 5, 166, DateTimeKind.Utc).AddTicks(3075), null });
 
             migrationBuilder.InsertData(
                 table: "HomeViewings",
                 columns: new[] { "Id", "Date", "HomeId" },
-                values: new object[] { 1, new DateTime(2022, 4, 1, 9, 19, 41, 477, DateTimeKind.Local).AddTicks(2431), 1 });
+                values: new object[] { 1, new DateTime(2022, 4, 7, 13, 55, 5, 166, DateTimeKind.Local).AddTicks(3100), 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -402,34 +284,9 @@ namespace Hittahem.Mvc.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HomeImages_HomeId",
-                table: "HomeImages",
-                column: "HomeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homes_HousingTypeId",
+                name: "IX_Homes_AgentId",
                 table: "Homes",
-                column: "HousingTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homes_MunicipalityId",
-                table: "Homes",
-                column: "MunicipalityId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homes_OwnershipTypeId",
-                table: "Homes",
-                column: "OwnershipTypeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homes_StreetId",
-                table: "Homes",
-                column: "StreetId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Homes_UserId",
-                table: "Homes",
-                column: "UserId");
+                column: "AgentId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HomeViewings_HomeId",
@@ -460,9 +317,6 @@ namespace Hittahem.Mvc.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "HomeImages");
-
-            migrationBuilder.DropTable(
                 name: "HomeViewings");
 
             migrationBuilder.DropTable(
@@ -476,18 +330,6 @@ namespace Hittahem.Mvc.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "HousingTypes");
-
-            migrationBuilder.DropTable(
-                name: "Municipalities");
-
-            migrationBuilder.DropTable(
-                name: "OwnershipTypes");
-
-            migrationBuilder.DropTable(
-                name: "Streets");
         }
     }
 }

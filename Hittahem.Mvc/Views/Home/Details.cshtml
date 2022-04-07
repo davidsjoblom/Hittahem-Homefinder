@@ -10,6 +10,6 @@
 <p>
     @foreach (Home h in Model.Homes)
     {
-        @(h.OwnershipType is null ? "abo" : h.OwnershipType.Name)
+        @h.OwnershipType
     }
 </p>

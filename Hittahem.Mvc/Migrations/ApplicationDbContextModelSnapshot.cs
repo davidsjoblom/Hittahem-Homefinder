@@ -116,59 +116,48 @@ namespace Hittahem.Mvc.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime?>("BuildYear")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AgentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BuildYear")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("ntext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("GardenArea")
-                        .HasColumnType("decimal(18,4)");
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("HousingTypeId")
+                    b.Property<int>("HousingType")
                         .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal?>("LivingArea")
-                        .HasColumnType("decimal(18,4)");
+                        .HasColumnType("decimal(10,2)");
 
-                    b.Property<int>("MunicipalityId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OwnershipTypeId")
+                    b.Property<int>("OwnershipType")
                         .HasColumnType("int");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int>("Rooms")
+                    b.Property<int?>("Rooms")
                         .HasColumnType("int");
-
-                    b.Property<int>("StreetId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("StreetNr")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("TimePosted")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal?>("UninhabitableArea")
-                        .HasColumnType("decimal(18,4)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                        .HasColumnType("decimal(10,2)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HousingTypeId");
-
-                    b.HasIndex("MunicipalityId");
-
-                    b.HasIndex("OwnershipTypeId");
-
-                    b.HasIndex("StreetId");
-
-                    b.HasIndex("UserId");
+                    b.HasIndex("AgentId");
 
                     b.ToTable("Homes");
 
@@ -176,42 +165,16 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
+                            Adress = "stockholm gatuvägen 69",
+                            AgentId = 1,
                             Description = "Fett trevligt jag svär",
-                            HousingTypeId = 1,
+                            HousingType = 0,
                             LivingArea = 18.5m,
-                            MunicipalityId = 1,
-                            OwnershipTypeId = 1,
+                            OwnershipType = 0,
                             Price = 1000000,
                             Rooms = 1,
-                            StreetId = 1,
-                            StreetNr = "69",
-                            TimePosted = new DateTime(2022, 4, 1, 7, 19, 41, 477, DateTimeKind.Utc).AddTicks(2406),
-                            UserId = 1
+                            TimePosted = new DateTime(2022, 4, 7, 11, 55, 5, 166, DateTimeKind.Utc).AddTicks(3075)
                         });
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.HomeImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Caption")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("HomeId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("image");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HomeId");
-
-                    b.ToTable("HomeImages");
                 });
 
             modelBuilder.Entity("Hittahem.Mvc.Models.HomeViewing", b =>
@@ -238,31 +201,8 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 4, 1, 9, 19, 41, 477, DateTimeKind.Local).AddTicks(2431),
+                            Date = new DateTime(2022, 4, 7, 13, 55, 5, 166, DateTimeKind.Local).AddTicks(3100),
                             HomeId = 1
-                        });
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.HousingType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("HousingTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Lägenhet"
                         });
                 });
 
@@ -279,75 +219,6 @@ namespace Hittahem.Mvc.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("InterestedUser");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.Municipality", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Municipalities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Stockholm"
-                        });
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.OwnershipType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("OwnershipTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Bostadsrätt"
-                        });
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.Street", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Streets");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Stockholmsvägen"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -489,56 +360,13 @@ namespace Hittahem.Mvc.Migrations
 
             modelBuilder.Entity("Hittahem.Mvc.Models.Home", b =>
                 {
-                    b.HasOne("Hittahem.Mvc.Models.HousingType", "HousingType")
+                    b.HasOne("Hittahem.Mvc.Models.ApplicationUser", "Agent")
                         .WithMany("Homes")
-                        .HasForeignKey("HousingTypeId")
+                        .HasForeignKey("AgentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Hittahem.Mvc.Models.Municipality", "Municipality")
-                        .WithMany("Homes")
-                        .HasForeignKey("MunicipalityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Hittahem.Mvc.Models.OwnershipType", "OwnershipType")
-                        .WithMany("Homes")
-                        .HasForeignKey("OwnershipTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Hittahem.Mvc.Models.Street", "Street")
-                        .WithMany("Homes")
-                        .HasForeignKey("StreetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Hittahem.Mvc.Models.ApplicationUser", "User")
-                        .WithMany("Homes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("HousingType");
-
-                    b.Navigation("Municipality");
-
-                    b.Navigation("OwnershipType");
-
-                    b.Navigation("Street");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.HomeImage", b =>
-                {
-                    b.HasOne("Hittahem.Mvc.Models.Home", "Home")
-                        .WithMany("HomeImages")
-                        .HasForeignKey("HomeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Home");
+                    b.Navigation("Agent");
                 });
 
             modelBuilder.Entity("Hittahem.Mvc.Models.HomeViewing", b =>
@@ -631,31 +459,9 @@ namespace Hittahem.Mvc.Migrations
 
             modelBuilder.Entity("Hittahem.Mvc.Models.Home", b =>
                 {
-                    b.Navigation("HomeImages");
-
                     b.Navigation("HomeViewings");
 
                     b.Navigation("InterestedUsers");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.HousingType", b =>
-                {
-                    b.Navigation("Homes");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.Municipality", b =>
-                {
-                    b.Navigation("Homes");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.OwnershipType", b =>
-                {
-                    b.Navigation("Homes");
-                });
-
-            modelBuilder.Entity("Hittahem.Mvc.Models.Street", b =>
-                {
-                    b.Navigation("Homes");
                 });
 #pragma warning restore 612, 618
         }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Hittahem.Mvc.Enums;
 
 namespace Hittahem.Mvc.Data
 {
@@ -53,30 +54,30 @@ namespace Hittahem.Mvc.Data
             //seededUser.PasswordHash = passwordHasher.HashPassword(seededUser, @"Pa$$w0rd");
             builder.Entity<ApplicationUser>().HasData(seededUser);
 
-            builder.Entity<HousingType>()
-                .HasData(new HousingType
-                {
-                    Id=1,
-                    Name = "Lägenhet"
-                });
-            builder.Entity<OwnershipType>()
-                .HasData(new OwnershipType
-                {
-                    Id = 1,
-                    Name = "Bostadsrätt"
-                });
-            builder.Entity<Municipality>()
-                .HasData(new Municipality
-                {
-                    Id = 1,
-                    Name = "Stockholm"
-                });
-            builder.Entity<Street>()
-                .HasData(new Street
-                {
-                    Id = 1,
-                    Name = "Stockholmsvägen"
-                });
+            //builder.Entity<HousingType>()
+            //    .HasData(new HousingType
+            //    {
+            //        Id=1,
+            //        Name = "Lägenhet"
+            //    });
+            //builder.Entity<OwnershipType>()
+            //    .HasData(new OwnershipType
+            //    {
+            //        Id = 1,
+            //        Name = "Bostadsrätt"
+            //    });
+            //builder.Entity<Municipality>()
+            //    .HasData(new Municipality
+            //    {
+            //        Id = 1,
+            //        Name = "Stockholm"
+            //    });
+            //builder.Entity<Street>()
+            //    .HasData(new Street
+            //    {
+            //        Id = 1,
+            //        Name = "Stockholmsvägen"
+            //    });
             builder.Entity<Home>()
                 .HasData(new Home
                 {
@@ -86,12 +87,10 @@ namespace Hittahem.Mvc.Data
                     Rooms = 1,
                     LivingArea = 18.5m,
                     TimePosted = DateTime.UtcNow,
-                    StreetNr = "69",
-                    StreetId = 1,
-                    UserId = 1,
-                    MunicipalityId = 1,
-                    HousingTypeId = 1,
-                    OwnershipTypeId = 1
+                    Adress = "stockholm gatuvägen 69",
+                    AgentId = 1,
+                    HousingType = Enums.HousingType.Lägenhet,
+                    OwnershipType = Enums.OwnershipType.Bostadsrätt
                 });
             builder.Entity<HomeViewing>()
                 .HasData(new HomeViewing
@@ -103,11 +102,6 @@ namespace Hittahem.Mvc.Data
         }
 
         public DbSet<Home> Homes { get; set; } = null!;
-        public DbSet<HomeImage> HomeImages { get; set; } = null!;
         public DbSet<HomeViewing> HomeViewings { get; set; } = null!;
-        public DbSet<HousingType> HousingTypes { get; set; } = null!;
-        public DbSet<Municipality> Municipalities { get; set; } = null!;
-        public DbSet<OwnershipType> OwnershipTypes { get; set; } = null!;
-        public DbSet<Street> Streets { get; set; } = null!;
     }
 }

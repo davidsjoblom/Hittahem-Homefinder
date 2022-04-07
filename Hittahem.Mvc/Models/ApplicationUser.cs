@@ -5,9 +5,8 @@ namespace Hittahem.Mvc.Models
 {
     public class ApplicationUser : IdentityUser<int>
     {
-        [InverseProperty("User")]
-        public virtual List<Home> Homes { get; set; }
-        public List<InterestedUser> InterestedUsers { get; set; }
+        public virtual List<Home> Homes { get; set; } // objekt mäklaren ansvarar för
+        public List<InterestedUser> InterestedUsers { get; set; } //intresseanmälningar
 
         public ApplicationUser()
         {
