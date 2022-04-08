@@ -1,26 +1,96 @@
-﻿@model Hittahem.Mvc.Models.Home
+﻿<head>
+    <link rel="stylesheet" href="~/css/detailsCss.css" />
+</head>
+@model Hittahem.Mvc.Models.Home
 
 @{
     ViewData["Title"] = "Details";
 }
+
+ <div class="container">
+            <div class="row">
+                <!-- Blog entries-->
+                <div class="col-lg-8">
+                    <!-- Featured blog post-->
+                    <div class="card mb-4">
+                        <a href="#!"><img class="card-img-top" src="~/lib/Image/Husbild.jpg" alt="..." /></a>
+                        <div class="card-body">
+                            <div><h4>@Html.DisplayFor(model => model.Street.Name)</h4></div>
+                            <div><h6>@Html.DisplayFor(model => model.Municipality.Name)</h6></div>
+                            <div><h6>@Html.DisplayFor(model => model.Price)</h6></div>
+                            <a class="btn btn-primary" href="#!">Intresseanmäl</a>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="row">
+                        <div class="col-lg-6">
+                            <!-- Blog post-->
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+                                </div>
+                            </div>
+                             <div class="card mb-3">
+                                <div class="card-body details" >
+                                    <dl class="row">
+
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.Rooms)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.Rooms)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.LivingArea)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.LivingArea)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.UninhabitableArea)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.UninhabitableArea)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.GardenArea)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.GardenArea)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BuildYear)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.BuildYear)
+        </dd>
+
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.HousingType)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.HousingType.Name)
+        </dd>
+        <dt class = "col-sm-3">
+            @Html.DisplayNameFor(model => model.OwnershipType)
+        </dt>
+        <dd class = "col-sm-5">
+            @Html.DisplayFor(model => model.OwnershipType.Name)
+        </dd>
+    </dl>
+                                    
+                                </div>
+                            </div>
+             </div>
+
+</div>
 
 
 <div>
     <h4>Home</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Rooms)
         </dt>
@@ -57,18 +127,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TimePosted)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StreetNr)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StreetNr)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Street)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Street.Name)
-        </dd>
+
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.User)
         </dt>

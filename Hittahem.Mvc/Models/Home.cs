@@ -8,16 +8,26 @@ namespace Hittahem.Mvc.Models
         [Key]
         public int Id { get; set; }
         //[Column(TypeName = "money")]
+        [Display(Name = "Pris")]
         public int Price { get; set; }
         [Column(TypeName = "ntext")]
+
+        [Display(Name = "Beskriving")]
         public string? Description { get; set; }
+
+        [Display(Name = "Antal rum")]
         public int Rooms { get; set; }
+
+        [Display(Name = "Boarea")]
         [Column(TypeName = "decimal(18,4)")]
         public decimal? LivingArea { get; set; }
         [Column(TypeName = "decimal(18,4)")]
+        [Display(Name = "Biarea")]
         public decimal? UninhabitableArea { get; set; }
         [Column(TypeName = "decimal(18,4)")]
+        [Display(Name = "Tomtarea")]
         public decimal? GardenArea { get; set; }
+        [Display(Name = "Byggår")]
         public DateTime? BuildYear { get; set; }
         public DateTime? TimePosted { get; set; }
         public string? StreetNr { get; set; }
