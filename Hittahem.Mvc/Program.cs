@@ -14,7 +14,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddSwaggerGen(c =>
 
+{
+
+    c.SwaggerDoc("v1", new() { Title = "MäklarensAPI", Version = "v1" });
+
+});
 //Google Authentication service
 builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 {
