@@ -42,6 +42,10 @@ body {
     border-radius: 1rem;
 }
 
+.text-header {
+    color: #783937FF;
+}
+
 /*Använd för att styla knappar med färg i*/
 .btn-home {
     color: #fff;
@@ -59,10 +63,10 @@ body {
     padding-left: 1rem;
 }
 
-/*.img-frontpage {
+.img-frontpage {
     height: auto;
     visibility: hidden;
-}*/
+}
 
 .img-house {
     max-width: 50rem;
@@ -70,9 +74,9 @@ body {
 }
 
 @media (min-width: 768px) {
-    /*.img-frontpage {
+    .img-frontpage {
         visibility: visible;
-    }*/
+    }
     .img-house {
         visibility: visible;
         max-width: 40rem;
