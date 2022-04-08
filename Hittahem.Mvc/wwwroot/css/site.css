@@ -36,28 +36,49 @@ body {
     text-align: center;
 }
 
-/*Använd text-header för alla rubriker */
+.search-container {
+    border: solid;
+    border-color: #783937FF;
+    border-radius: 1rem;
+}
+
 .text-header {
     color: #783937FF;
 }
 
+/*Använd för att styla knappar med färg i*/
 .btn-home {
     color: #fff;
+    width: 9rem;
     background-color: #783937FF;
     border-color: #783937FF;
+    border-radius: 1rem;
+    padding-left: 1rem;
 }
-/*Kan bli fel på alla andra bilder*/
-img {
-    max-width: 100%;
-    height: auto;
+
+/*Använd för att styla knappar med färg runt*/
+.btn-home-line {
+    border-color: #783937FF;
+    border-radius: 1rem;
+    padding-left: 1rem;
 }
 
 .img-frontpage {
+    height: auto;
+    visibility: hidden;
+}
+
+.img-house {
+    max-width: 50rem;
     visibility: hidden;
 }
 
 @media (min-width: 768px) {
     .img-frontpage {
         visibility: visible;
+    }
+    .img-house {
+        visibility: visible;
+        max-width: 40rem;
     }
 }
