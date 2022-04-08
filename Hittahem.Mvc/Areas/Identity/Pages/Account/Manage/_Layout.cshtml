@@ -1,4 +1,13 @@
-﻿@{
+﻿<!--Denna sida gör rubriken högst upp under "main"-navbar på sidan Manage your account-->
+
+<!--För att styla rätt färg på rubrik
+text-header
+rätt färg på knapp
+btn-home
+färg på knapp utan fyllning
+btn-home-line-->
+
+@{
     if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
     {
         Layout = (string)parentLayout;
@@ -9,7 +18,7 @@
     }
 }
 
-<h1>Manage your account</h1>
+<h1>Manage your accountTTT</h1>
 
 <div>
     <h2>Change your account settings</h2>
