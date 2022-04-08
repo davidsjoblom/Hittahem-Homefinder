@@ -13,12 +13,56 @@
             <div class="searchbar my-3">
                 <input type="text" name="searchString" class="bi bi-search" placeholder="Sök Ort" />
             </div>
-            <div class="filter-frontpage">
-           @* man ska kunna kryssa i flera alternativ för hustyp *@
-           @* max pris för huset *@
-           @* min rum och min boarea *@
-            </div>
-        </form>
+             @foreach (var houseType in Model.HousingTypes)
+                    {
+                        <div class="filterBoxes float-start">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="HouseTypes[@arrayValue]" id="inlineCheckbox_@houseType.Id" value="@houseType.Id">
+                                <label class="form-check-label" for="inlineCheckbox_@houseType.Id">@houseType.Name</label>
+                            </div>
+                        </div>
+                        arrayValue = arrayValue + 1;
+                    }
+                    <div class="maximum-filter">
+                        <label for="price">Max Pris</label>
+                        <select id="price" name="price" class="btn-home-line">
+                            <option value="start">50 000</option>
+                            <option value="second">100 000</option>
+                            <option value="middle">500 000</option>
+                            <option value="large">1 000 000</option>
+                            <option value="larger">5 000 000</option>
+                            <option value="castle">10 000 000</option>
+                        </select>
+                    </div>
+                    <div class="minimum-filter">
+                        <label for="room">Min Rum</label>
+                        <select id="price" name="price" class="btn-home-line">
+                            <option value="one">1:a</option>
+                            <option value="two">2:a</option>
+                            <option value="three">3:a</option>
+                            <option value="four">4:a</option>
+                            <option value="five">5:a</option>
+                            <option value="six">6:a</option>
+                            <option value="obove">Fler än 6</option>
+                        </select>
+                    </div>
+                    <div class="minimum-area-filter ">
+                        <label for="area">Min Boarea</label>
+                        <select id="area" name="area" class="btn-home-line">
+                            <option value="smallest">30 kvm</option>
+                            <option value="smaller">60 kvm</option>
+                            <option value="small">80 kvm</option>
+                            <option value="big">120 kvm</option>
+                            <option value="bigger">150 kvm</option>
+                            <option value="biggest">Större än 150 kvm</option>
+                        </select>
+                    </div>
+
+
+                    <div class="submit-button float-end">
+                        <input type="submit" class="btn-home my-3" value=Hitta />
+                    </div>
+                </form>
         </div>    
     </div>
     <div class="col-md-8 ">
