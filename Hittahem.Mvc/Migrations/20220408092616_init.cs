@@ -237,12 +237,12 @@ namespace Hittahem.Mvc.Migrations
             migrationBuilder.InsertData(
                 table: "Homes",
                 columns: new[] { "Id", "Adress", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
-                values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 0, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 7, 11, 55, 5, 166, DateTimeKind.Utc).AddTicks(3075), null });
+                values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 0, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 8, 9, 26, 16, 346, DateTimeKind.Utc).AddTicks(564), null });
 
             migrationBuilder.InsertData(
                 table: "HomeViewings",
                 columns: new[] { "Id", "Date", "HomeId" },
-                values: new object[] { 1, new DateTime(2022, 4, 7, 13, 55, 5, 166, DateTimeKind.Local).AddTicks(3100), 1 });
+                values: new object[] { 1, new DateTime(2022, 4, 8, 11, 26, 16, 346, DateTimeKind.Local).AddTicks(588), 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

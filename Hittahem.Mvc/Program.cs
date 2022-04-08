@@ -18,7 +18,7 @@ builder.Services.AddSwaggerGen(c =>
 
 {
 
-    c.SwaggerDoc("v1", new() { Title = "MäklarensAPI", Version = "v1" });
+    c.SwaggerDoc("v1", new() { Title = "Mï¿½klarensAPI", Version = "v1" });
 
 });
 //Google Authentication service
@@ -53,7 +53,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwagger();
 
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MäklarensAPI v1"));
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Mï¿½klarensAPI v1"));
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

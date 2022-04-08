@@ -173,7 +173,7 @@ namespace Hittahem.Mvc.Migrations
                             OwnershipType = 0,
                             Price = 1000000,
                             Rooms = 1,
-                            TimePosted = new DateTime(2022, 4, 7, 11, 55, 5, 166, DateTimeKind.Utc).AddTicks(3075)
+                            TimePosted = new DateTime(2022, 4, 8, 9, 26, 16, 346, DateTimeKind.Utc).AddTicks(564)
                         });
                 });
 
@@ -201,7 +201,7 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 4, 7, 13, 55, 5, 166, DateTimeKind.Local).AddTicks(3100),
+                            Date = new DateTime(2022, 4, 8, 11, 26, 16, 346, DateTimeKind.Local).AddTicks(588),
                             HomeId = 1
                         });
                 });
