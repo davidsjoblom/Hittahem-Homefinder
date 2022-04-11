@@ -1,30 +1,60 @@
 ﻿@model HomeIndexViewModel
+@using Hittahem.Mvc.Enums
 @{
     ViewData["Title"] = "Home Page";
 }
-<body>
 
-<div class="container-fluid mt-5">
+
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
-        <h1 class="text-header">Välkommen till Hitta Hem</h1>
+        <h1 class="text-header my-2">Välkommen till Hitta Hem</h1>
        
         <div class="search-container container-fluid">
-        <form asp-action="Index" class="col-md-4 my-1 p-2">
+        <form asp-action="Index" method="" >
+        <div class="my-1 p-2">
             <div class="searchbar my-3">
-                <input type="text" name="searchString" class="bi bi-search" placeholder="Sök Ort" />
+                <input type="text" name="searchString" class="btn-home-line" placeholder="Sök Ort" />
             </div>
-             @*@foreach (var houseType in Model.Homes)
-                    {
-                        <div class="filterBoxes float-start">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="HouseTypes[@arrayValue]" id="inlineCheckbox_@houseType.Id" value="@houseType.Id">
-                                <label class="form-check-label" for="inlineCheckbox_@houseType.Id">@houseType.Name</label>
-                            </div>
-                        </div>*@
-                       @* arrayValue = arrayValue + 1;
-                    }*@
-                    <div class="maximum-filter float-center">
+            <div class="check-box justify-content-center">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Villa">
+                  <label class="form-check-label" for="inlineCheckbox1">Villa</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Radhus">
+                  <label class="form-check-label" for="inlineCheckbox2">Radhus</label>
+                </div>
+                 <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Lägenhet">
+                  <label class="form-check-label" for="inlineCheckbox1">Lägenhet</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Fritidshus">
+                  <label class="form-check-label" for="inlineCheckbox2">Fritidsboende</label>
+                </div>
+                 <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Tomt">
+                  <label class="form-check-label" for="inlineCheckbox1">Tomt</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Gård">
+                  <label class="form-check-label" for="inlineCheckbox2">Gård/Skog</label>
+                </div>
+            </div>
+
+                     <div class="minimum-area-filter my-3">
+                        <label for="area">Min Boarea</label>
+                        <select id="area" name="area" class="btn-home-line">
+                            <option value="smallest">30 kvm</option>
+                            <option value="smaller">60 kvm</option>
+                            <option value="small">80 kvm</option>
+                            <option value="big">120 kvm</option>
+                            <option value="bigger">150 kvm</option>
+                            <option value="biggest">Större än 150 kvm</option>
+                        </select>
+                    </div>
+                    <div class="maximum-filter my-3">
                         <label for="price">Max Pris</label>
                         <select id="price" name="price" class="btn-home-line">
                             <option value="start">50 000</option>
@@ -35,7 +65,7 @@
                             <option value="castle">10 000 000</option>
                         </select>
                     </div>
-                    <div class="minimum-filter float-start">
+                    <div class="minimum-filter">
                         <label for="room">Min Rum</label>
                         <select id="price" name="price" class="btn-home-line">
                             <option value="one">1:a</option>
@@ -47,24 +77,16 @@
                             <option value="obove">Fler än 6</option>
                         </select>
                     </div>
-                    <div class="minimum-area-filter float-end">
-                        <label for="area">Min Boarea</label>
-                        <select id="area" name="area" class="btn-home-line">
-                            <option value="smallest">30 kvm</option>
-                            <option value="smaller">60 kvm</option>
-                            <option value="small">80 kvm</option>
-                            <option value="big">120 kvm</option>
-                            <option value="bigger">150 kvm</option>
-                            <option value="biggest">Större än 150 kvm</option>
-                        </select>
-                    </div>
+                   
 
 
-                    <div class="submit-button float-end">
+                    <div class="submit-button">
                         <input type="submit" class="btn-home my-3" value=Hitta />
                     </div>
-                </form>
-        </div>    
+            </div>
+        </form>  
+        </div> 
+         
     </div>
     <div class="col-md-8 ">
         <div class="img-frontpage">
@@ -76,7 +98,7 @@
      
  
 </div>
-</body>
+
 
 @*<div class="container">
   <div class="row">
