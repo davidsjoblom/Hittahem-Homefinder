@@ -15,33 +15,41 @@ namespace Hittahem.Mvc.Controllers
             db = injectedContext;
         }
 
-        public IActionResult Index(SearchResultModel searchResult=null)
+        public IActionResult Index(SearchResultModel searchResult = null)
         {
             HomeIndexViewModel model = new();
             if (searchResult == null)
             {
-                model = new( 
-                    Homes: db.Homes.ToList()
+                model = new() 
+                {
+                    Homes = db.Homes.ToList()
                     //Streets: db.Streets.ToList(),
                     //Users: db.Users.ToList(),
                     //Municipalities: db.Municipalities.ToList(),
                     //OwnershipTypes: db.OwnershipTypes.ToList(),
                     /*HomeViewings: db.HomeViewings.ToList()*/
-                    );
+                }; 
             }
             else
             {
-                model = new(
-                    Homes: searchResult.HouseResult
-                    );
+                model = new()
+                {
+                    Homes = searchResult.HouseResult
+                };
             }
            
             return View(model);
         }
 
-        public IActionResult Search()
+        public IActionResult Search([FromForm] SearchResultModel model)
         {
+            //Leta efter result med hjälp av dom parameterar som kommer med model.
+            //HousingType är nu en int som ska paras ihop med rätt enum.
+            //Room, Area och price blir alltid filtrerad på första värdet i option. Första måste vara tomt.
 
+
+            //Skicka med husen som matchar sökningen tillbaka till Index.
+            return RedirectToAction("Index", model);
         }
 
         public IActionResult Details(int i)
