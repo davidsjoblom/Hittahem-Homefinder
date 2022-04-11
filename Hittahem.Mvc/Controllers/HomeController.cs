@@ -15,17 +15,33 @@ namespace Hittahem.Mvc.Controllers
             db = injectedContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(SearchResultModel searchResult=null)
         {
-            HomeIndexViewModel model = new ( 
-                Homes: db.Homes.ToList(),
-                //Streets: db.Streets.ToList(),
-                Users: db.Users.ToList(),
-                //Municipalities: db.Municipalities.ToList(),
-                //OwnershipTypes: db.OwnershipTypes.ToList(),
-                HomeViewings: db.HomeViewings.ToList()
-                );
+            HomeIndexViewModel model = new();
+            if (searchResult == null)
+            {
+                model = new( 
+                    Homes: db.Homes.ToList()
+                    //Streets: db.Streets.ToList(),
+                    //Users: db.Users.ToList(),
+                    //Municipalities: db.Municipalities.ToList(),
+                    //OwnershipTypes: db.OwnershipTypes.ToList(),
+                    /*HomeViewings: db.HomeViewings.ToList()*/
+                    );
+            }
+            else
+            {
+                model = new(
+                    Homes: searchResult.HouseResult
+                    );
+            }
+           
             return View(model);
+        }
+
+        public IActionResult Search()
+        {
+
         }
 
         public IActionResult Details(int i)

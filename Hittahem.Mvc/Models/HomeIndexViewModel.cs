@@ -3,8 +3,9 @@
 {
     public record HomeIndexViewModel
     (
-        IList<Home> Homes,
-        IList<ApplicationUser> Users,
-        IList<HomeViewing> HomeViewings
+
+        List<Home> Homes
+        //IList<ApplicationUser> Users,
+        //IList<HomeViewing> HomeViewings
     );
 }

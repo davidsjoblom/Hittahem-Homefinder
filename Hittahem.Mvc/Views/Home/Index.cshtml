@@ -4,170 +4,94 @@
     ViewData["Title"] = "Home Page";
 }
 
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-        <h1 class="text-header my-2">Välkommen till Hitta Hem</h1>
+<body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+            <h1 class="text-header my-2">Välkommen till Hitta Hem</h1>
        
-        <div class="search-container container-fluid">
-        <form asp-action="Index" method="" >
-        <div class="my-1 p-2">
-            <div class="searchbar my-3">
-                <input type="text" name="searchString" class="btn-home-line" placeholder="Sök Ort" />
-            </div>
-            <div class="d-flex flex-wrap justify-content-between">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Villa">
-                  <label class="form-check-label" for="inlineCheckbox1">Villa</label>
+            <div class="search-container container-fluid">
+            <form asp-action="Search" method="post" >
+            <div class="my-1 p-2">
+                <div class="searchbar my-3">
+                    <input type="text" name="searchString" class="btn-home-line" placeholder="Sök Ort" />
                 </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Radhus">
-                  <label class="form-check-label" for="inlineCheckbox2">Radhus</label>
+                <div class="d-flex flex-wrap justify-content-between">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="villa" value="Villa">
+                      <label class="form-check-label" for="inlineCheckbox1">Villa</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="radhus" value="Radhus">
+                      <label class="form-check-label" for="inlineCheckbox2">Radhus</label>
+                    </div>
+                     <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="lägenhet" value="Lägenhet">
+                      <label class="form-check-label" for="inlineCheckbox3">Lägenhet</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="fritidshus" value="Fritidshus">
+                      <label class="form-check-label" for="inlineCheckbox4">Fritidsboende</label>
+                    </div>
+                     <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="tomt" value="Tomt">
+                      <label class="form-check-label" for="inlineCheckbox5">Tomt</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="gård" value="Gård">
+                      <label class="form-check-label" for="inlineCheckbox6">Gård/Skog</label>
+                    </div>
                 </div>
-                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Lägenhet">
-                  <label class="form-check-label" for="inlineCheckbox1">Lägenhet</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Fritidshus">
-                  <label class="form-check-label" for="inlineCheckbox2">Fritidsboende</label>
-                </div>
-                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Tomt">
-                  <label class="form-check-label" for="inlineCheckbox1">Tomt</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Gård">
-                  <label class="form-check-label" for="inlineCheckbox2">Gård/Skog</label>
-                </div>
-            </div>
 
-                     <div class="minimum-area-filter my-3">
-                        <label for="area">Min Boarea</label>
-                        <select id="area" name="area" class="btn-home-line">
-                            <option value="smallest">30 kvm</option>
-                            <option value="smaller">60 kvm</option>
-                            <option value="small">80 kvm</option>
-                            <option value="big">120 kvm</option>
-                            <option value="bigger">150 kvm</option>
-                            <option value="biggest">Större än 150 kvm</option>
-                        </select>
-                    </div>
-                    <div class="maximum-filter my-3">
-                        <label for="price">Max Pris</label>
-                        <select id="price" name="price" class="btn-home-line">
-                            <option value="start">50 000</option>
-                            <option value="second">100 000</option>
-                            <option value="middle">500 000</option>
-                            <option value="large">1 000 000</option>
-                            <option value="larger">5 000 000</option>
-                            <option value="castle">10 000 000</option>
-                        </select>
-                    </div>
-                    <div class="minimum-filter">
-                        <label for="room">Min Rum</label>
-                        <select id="price" name="price" class="btn-home-line">
-                            <option value="one">1:a</option>
-                            <option value="two">2:a</option>
-                            <option value="three">3:a</option>
-                            <option value="four">4:a</option>
-                            <option value="five">5:a</option>
-                            <option value="six">6:a</option>
-                            <option value="obove">Fler än 6</option>
-                        </select>
-                    </div>
+                         <div class="minimum-area-filter my-3">
+                            <label for="area">Min Boarea</label>
+                            <select id="area" name="area" class="btn-home-line">
+                                <option value="smallest">30 kvm</option>
+                                <option value="smaller">60 kvm</option>
+                                <option value="small">80 kvm</option>
+                                <option value="big">120 kvm</option>
+                                <option value="bigger">150 kvm</option>
+                                <option value="biggest">Större än 150 kvm</option>
+                            </select>
+                        </div>
+                        <div class="maximum-filter my-3">
+                            <label for="price">Max Pris</label>
+                            <select id="price" name="price" class="btn-home-line">
+                                <option value="start">50 000</option>
+                                <option value="second">100 000</option>
+                                <option value="middle">500 000</option>
+                                <option value="large">1 000 000</option>
+                                <option value="larger">5 000 000</option>
+                                <option value="castle">10 000 000</option>
+                            </select>
+                        </div>
+                        <div class="minimum-filter">
+                            <label for="room">Min Rum</label>
+                            <select id="price" name="price" class="btn-home-line">
+                                <option value="one">1:a</option>
+                                <option value="two">2:a</option>
+                                <option value="three">3:a</option>
+                                <option value="four">4:a</option>
+                                <option value="five">5:a</option>
+                                <option value="six">6:a</option>
+                                <option value="obove">Fler än 6</option>
+                            </select>
+                        </div>
                    
 
 
-                    <div class="submit-button">
-                        <input type="submit" class="btn-home my-3" value=Hitta />
-                    </div>
+                        <div class="submit-button">
+                            <input type="submit" class="btn-home my-3" value=Hitta />
+                        </div>
+                </div>
+            </form>  
+            </div> 
+        </div>
+        <div class="col-md-8 ">
+            <div class="img-frontpage">
+               <img src="/lib/Image/img.start2.jpg" class="rounded img-house" alt="Image start">
             </div>
-        </form>  
-        </div> 
-         
+        </div>
+      </div>
     </div>
-    <div class="col-md-8 ">
-        <div class="img-frontpage">
-           <img src="/lib/Image/img.start2.jpg" class="rounded img-house" alt="Image start">
-        </div>
-    </div>
-  </div>
- 
-     
- 
-</div>
-
-
-@*<div class="container">
-  <div class="row">
-    <div class="col-md-4 mb-3">
-     <header>
-        <h1 class="text-header">Välkommen till Hitta Hem</h1>
-     </header>
-    </div>
-    <div class="col-md-4 mb-3">
-        <form asp-action="Index" class="col-md-4 my-1 p-2">
-            <div class="searchbar my-3">
-            <input type="text" name="searchString" placeholder=<i class="bi bi-search"></i>"Sök Ort" />
-            </div>
-            <div class="col-md-8">
-                 <div class="img-frontpage">
-                 <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
-                 </div>
-            </div>
-    <div></div>
-            <div class="filter- my-1">
-
-            </div>
-        </form>
-    </div>
-   
-    <form asp-action="Index" class="col-md-4 my-1 p-2">
-        <div class="my-1">
-            <input type="text" name="searchString" placeholder="Sök Ort" class="form-control-sm col-12" />
-        </div>
-        <div class="filter my-1">
-        </div>
-        <label for="Price">Utgångspris:</label><br>
-        <div class="my-1">
-            <input type="number" name="minPrice" step="1" class="form-control-sm col-5" />&nbsp;&#8212;&nbsp;<input type="number" name="maxPrice" step="1" class="form-control-sm col-5" />
-        </div>
-        <div class="my-1">
-            <input type="submit" value="Sök" class="btn btn-home" />
-        </div>
-        
-    </form>
-
-    <div class="col-md-8">
-        <div class="img-frontpage">
-            <img src="/lib/Image/img.start2.jpg" class="rounded" alt="Image start">
-        </div>
-    </div>
-  
-</div>
-
-
 </body>
-
-<div>
-    <ul>
-        @foreach (Home h in Model.Homes)
-        {
-            <li>
-                @h.Street.Name
-            </li>
-            <li>
-                @h.Price
-            </li>
-            <li>
-                @(h.User is null ? "no mäklare" : h.User.UserName)
-            </li>
-            <li>
-                @(h.Municipality is null ? "no mäklare" : h.Municipality.Name)
-            </li>
-        }
-    </ul>
-    
-</div>*@
