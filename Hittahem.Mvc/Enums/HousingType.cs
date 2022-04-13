@@ -2,6 +2,7 @@
 {
     public enum HousingType
     {
+        None,
         Lägenhet,
         Villa,
         Radhus,
@@ -12,26 +13,29 @@
 
     public enum Area
     {
+        None,
         Smallest,
         Smaller,
         Small,
         Big,
         Bigger,
-        Biggest
     }
 
     public enum Price
     {
+        None,
         Start,
         Second,
         Middle,
         Large,
         Larger,
-        Castle
+        Castle,
+        More
     }
 
     public enum Room
     {
+        None,
         One,
         Two,
         Three,
