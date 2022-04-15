@@ -52,15 +52,20 @@ body {
     width: 9rem;
     background-color: #783937FF;
     border-color: #783937FF;
-    border-radius: 1rem;
+    border-radius: 0.25em;
     padding-left: 1rem;
 }
 
 /*Använd för att styla knappar med färg runt*/
 .btn-home-line {
     border-color: #783937FF;
-    border-radius: 1rem;
+    border-radius: 0.25em;
     padding-left: 1rem;
+}
+
+.form-check-input:checked {
+    background-color: #783937FF;
+    border-color: #783937FF;
 }
 
 .img-frontpage {
