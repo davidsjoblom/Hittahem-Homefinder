@@ -1,7 +1,9 @@
 ﻿@model HomeIndexViewModel
 @using Hittahem.Mvc.Enums
+@using Hittahem.Mvc.Models
+
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"]= "HittaHem";
 }
 
 <body>
@@ -96,4 +98,27 @@
         </div>
       </div>
     </div>
+
+   
+
+   @* <div class="row">
+        @foreach (var house in Model.Homes)
+        {
+            <div class="col-3">
+                <div class="card">
+                    <a asp-controller="Index" asp-action="Details" id="@house.Id">
+                        <img src="@house.Image" class="card-img-top">
+                        <div class="card-body" style="height: 6em;">
+                            <h5 class="text-header mb-3" @house.HousingType></h5>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-text">@house.Price</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+     
+      
+    </div>*@
 </body>

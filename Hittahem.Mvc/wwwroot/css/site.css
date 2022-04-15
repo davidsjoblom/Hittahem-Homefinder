@@ -92,6 +92,12 @@ body {
     font-size: 1.5rem;
     color: floralwhite;
 }
+
+.footer-icons a {
+    text-decoration: none;
+    color: floralwhite;
+}
+
 .footer-links a {
     color: floralwhite;
     text-decoration: none;
