@@ -19,7 +19,7 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3 class="text-header">Registrera via Google</h3>
+            <h3 class="text-header">Registrera nytt konto</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -38,7 +38,8 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="w-100 btn btn-lg btn-home-line" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account"> Logga in med Google</button>
+                                    <button type="submit" class="w-100 btn btn-lg btn-home-line text-header" name="provider" 
+                                    value="@provider.Name" title="Log in using your @provider.DisplayName account"> Logga in med Google</button>
                                 }
                             </p>
                         </div>

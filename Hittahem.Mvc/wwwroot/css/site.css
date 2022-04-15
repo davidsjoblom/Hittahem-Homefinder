@@ -87,3 +87,12 @@ body {
         max-width: 40rem;
     }
 }
+.footer-icons {
+    margin: 20px;
+    font-size: 1.5rem;
+    color: floralwhite;
+}
+.footer-links a {
+    color: floralwhite;
+    text-decoration: none;
+}

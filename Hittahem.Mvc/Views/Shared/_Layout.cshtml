@@ -40,9 +40,28 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - HittaHem - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="footer-icons col-12" style="text-align: center;">
+                    <i class="bi bi-twitter me-3"></i>
+                    <i class="bi bi-facebook me-3"></i>
+                    <i class="bi bi-instagram me-3"></i>
+                    <i class="bi bi-youtube me-3"></i>
+                </div>
+            <div class="row">
+                 <div class="footer-links col-6" style="text-align: start;">
+                     <a asp-area="" asp-controller="Home" asp-action="Index">Contact</a> <br />
+                     <a asp-area="" asp-controller="Home" asp-action="Index">About Us</a> <br />
+                     <a asp-area="" asp-controller="Home" asp-action="Index">Terms & Conditions</a>
+                 </div>
+                <div class="footer-links col-6" style="text-align: start;">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Careers</a> <br />
+                    <a asp-area="" asp-controller="Home" asp-action="Index">Change Country</a> <br />
+                <span class="float-end">&copy; 2022 - HittaHem</span>
+            </div>
+            </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
