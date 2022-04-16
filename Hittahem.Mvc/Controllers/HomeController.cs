@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Hittahem.Mvc.Data;
 using Hittahem.Mvc.Enums;
+using Newtonsoft.Json;
 
 namespace Hittahem.Mvc.Controllers
 {
@@ -15,10 +16,11 @@ namespace Hittahem.Mvc.Controllers
             db = injectedContext;
         }
 
-        public IActionResult Index(SearchResultModel searchResult = null)
+        public IActionResult Index()
         {
             HomeIndexViewModel model = new();
-            if (searchResult.HouseResult == null)
+
+            if (!TempData.ContainsKey("SearchResult"))
             {
                 model = new() 
                 {
@@ -32,9 +34,14 @@ namespace Hittahem.Mvc.Controllers
             }
             else
             {
+                //Om det fanns något i TempData så hämtar vi ut det och gör om det till en List<Home>
+                List<Home> searchResultList = JsonConvert.DeserializeObject<List<Home>>((string)TempData["SearchResult"]);
+
+                if (searchResultList is null || !searchResultList.Any()) return View(model);
+
                 model = new()
                 {
-                    Homes = searchResult.HouseResult
+                    Homes = searchResultList
                 };
             }
            
@@ -53,8 +60,6 @@ namespace Hittahem.Mvc.Controllers
                 homes = homes.Where(h => h.Adress.Contains(model.SearchString));
             }       
             
-            //3. Ta endast Home som uppfyller detta krav på Area.
-            //Switch på enumen
             switch (model.Area)
             {
                 case Enums.Area.None:
@@ -78,7 +83,6 @@ namespace Hittahem.Mvc.Controllers
                     break;
             }
 
-            //4. Ta endast Home som uppfyller detta krav på Price
             switch (model.Price)
             {
                 case Enums.Price.None:
@@ -107,8 +111,6 @@ namespace Hittahem.Mvc.Controllers
                 default:
                     break;
             }
-
-            //5. Ta endast Home som uppfyller detta krav på Room.
 
             switch (model.Room)
             {
@@ -139,8 +141,6 @@ namespace Hittahem.Mvc.Controllers
                     break;
             }
 
-            //2. Ta endast dom HousingTypes i Home som användaren har valt.
-            //Tips på metod Where(), appliceras på en lista.
             List<Home> filterList = new();
             if (model.HousingType != null)
             {                
@@ -150,17 +150,16 @@ namespace Hittahem.Mvc.Controllers
                 }
             }
 
-            //Resultat av all filtering och sökning ska senare läggas i variabeln model.HouseResult
             var homesToList = homes.ToList();
             if (filterList.Any())
             {
                 homesToList = filterList;
             }
 
-            model.HouseResult = homesToList;
-
-            //Skicka med husen som matchar sökningen tillbaka till Index.
-            return RedirectToAction("Index", model);
+            //Spara husen som matchar sökningen så vi kan hämta ut dom i Index.
+            TempData["SearchResult"] = JsonConvert.SerializeObject(homesToList);
+            
+            return RedirectToAction("Index");
         }
 
         public IActionResult Details(int i)
