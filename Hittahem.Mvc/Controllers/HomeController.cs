@@ -18,7 +18,7 @@ namespace Hittahem.Mvc.Controllers
         public IActionResult Index(SearchResultModel searchResult = null)
         {
             HomeIndexViewModel model = new();
-            if (searchResult == null)
+            if (searchResult.HouseResult == null)
             {
                 model = new() 
                 {
@@ -142,7 +142,7 @@ namespace Hittahem.Mvc.Controllers
             //2. Ta endast dom HousingTypes i Home som användaren har valt.
             //Tips på metod Where(), appliceras på en lista.
             List<Home> filterList = new();
-            if (model.HousingType.Any())
+            if (model.HousingType != null)
             {                
                 foreach (var type in model.HousingType)
                 {

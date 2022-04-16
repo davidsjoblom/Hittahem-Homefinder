@@ -70,22 +70,10 @@ body {
 
 .img-frontpage {
     height: auto;
-    visibility: hidden;
 }
 
 .img-house {
     max-width: 50rem;
-    visibility: hidden;
-}
-
-@media (min-width: 768px) {
-    .img-frontpage {
-        visibility: visible;
-    }
-    .img-house {
-        visibility: visible;
-        max-width: 40rem;
-    }
 }
 
 .card-img{
@@ -111,24 +99,32 @@ body {
 }
 
 .card-smal{
-    width: 16rem;
+    width: 18rem;
 }
 
 .card-body{
-    text-align:left;
+    text-align: left;
 }
 .card-text{
-    font-size: 16px;
-
+    font-size: 1rem;
 }
 dt {
     text-align: left;
-
 }
 dd {
     text-align: right;
 }
+@media (min-width: 768px) 
+{
+
 }
+.list-group {
+    text-align: start;
+    list-style-type: none;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
 .footer-icons {
     margin: 20px;
     font-size: 1.5rem;
