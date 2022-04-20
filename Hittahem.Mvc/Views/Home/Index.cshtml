@@ -109,11 +109,10 @@
                     @*lägg in bilder som är sparat på hus*@
                     <img src="~/lib/Image/Husbild.jpg" class="card-img-top card-img">
                    
-                         <div class="card-body col-md-4">
+                         <div class="card-body col-md-6">
                              <h4 class="card-title">@home.HousingType</h4>
-
-                        @*Skriv ut första 10 eller 20 char i string description*@
-                             <p class="card-text">@home.Description.Substring(0,10)</p>
+                             @*för att det inte ska bli fel så måste första meningen innehålla 30 eller fler char i beskrivning.*@
+                             <p class="card-text">@home.Description.Substring(0,30)</p>
                          </div>
 
                          <ul class="list-group list-group-flush">
