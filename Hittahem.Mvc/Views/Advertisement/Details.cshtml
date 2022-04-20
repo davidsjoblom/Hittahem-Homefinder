@@ -13,6 +13,7 @@
                             <div><h4>@Html.DisplayFor(model => model.Adress)</h4></div>
                             <div><h6>@Html.DisplayFor(model => model.Price)</h6></div>
                             <a class="btn btn-primary" href="#!">Intresseanmäl</a>
+                            
                         </div>
                     </div>
                  </div>
@@ -76,7 +77,13 @@
                             </div>
              </div>
 
+
+     <dd class ="">
+         @Html.DisplayFor(model => model.AgentId)
+     </dd>        
+
 </div>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
