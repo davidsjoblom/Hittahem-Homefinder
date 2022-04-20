@@ -73,7 +73,8 @@ body {
 }
 
 .img-house {
-    max-width: 50rem;
+    width: 35rem;
+    margin-top: 1rem;
 }
 
 .card-img{
