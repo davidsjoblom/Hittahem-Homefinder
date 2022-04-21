@@ -20,15 +20,15 @@
                 </div>
                 <div class="d-flex flex-wrap justify-content-around">
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="villa" value="1">
+                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="villa" value="2">
                       <label class="form-check-label" for="villa">Villa</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="radhus" value="2">
+                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="radhus" value="3">
                       <label class="form-check-label" for="radhus">Radhus</label>
                     </div>
                      <div class="form-check form-check-inline">
-                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="lagenhet" value="3">
+                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="lagenhet" value="1">
                       <label class="form-check-label" for="lagenhet">Lägenhet</label>
                     </div>
                     <div class="form-check form-check-inline">
@@ -36,11 +36,11 @@
                       <label class="form-check-label" for="fritid">Fritidsboende</label>
                     </div>
                      <div class="form-check form-check-inline">
-                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="tomt" value="5">
+                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="tomt" value="6">
                       <label class="form-check-label" for="tomt">Tomt</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="gard" value="6">
+                      <input class="form-check-input btn-home-line" type="checkbox" name="HousingType" id="gard" value="5">
                       <label class="form-check-label" for="gard">Gård/Skog</label>
                     </div>
                 </div>
@@ -112,7 +112,15 @@
                          <div class="card-body col-md-6">
                              <h4 class="card-title">@home.HousingType</h4>
                              @*för att det inte ska bli fel så måste första meningen innehålla 30 eller fler char i beskrivning.*@
-                             @*<p class="card-text">@home.Description.Substring(0,30)</p>*@
+                            @if (string.IsNullOrEmpty(home.Description) || home.Description.Count<char>() <= 26)
+                            {
+                                <p class="card-text">Ingen beskrivning av huset</p>
+                            }
+                            else
+                            {
+                                <p class="card-text">@home.Description.Substring(0,26)</p>
+                            }
+                            
                          </div>
 
                          <ul class="list-group list-group-flush">
