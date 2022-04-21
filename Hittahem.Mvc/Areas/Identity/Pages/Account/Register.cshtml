@@ -20,11 +20,11 @@
     <div class="col-md-7 col-md-offset-2 p-md-4">
         <section>
             <h3 class="text-header">Registrera nytt konto</h3>
-            <hr />
+            
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <div>
+                    <div class="text-header">
                         <p>
                             There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
                             about setting up this ASP.NET application to support logging in via external services</a>.
