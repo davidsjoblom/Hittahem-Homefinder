@@ -1,7 +1,8 @@
-    using Hittahem.Mvc.Data;
+using Hittahem.Mvc.Data;
 using Hittahem.Mvc.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,9 +12,12 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+
 builder.Services.AddSwaggerGen(c =>
 
 {
@@ -30,6 +34,12 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
 
 
 var app = builder.Build();
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    SeedData.Initialize(services);
+//}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,7 +53,7 @@ else
     app.UseHsts();
 }
 app.UseSwagger();
-app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi v1"));
+//app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoApi v1"));
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

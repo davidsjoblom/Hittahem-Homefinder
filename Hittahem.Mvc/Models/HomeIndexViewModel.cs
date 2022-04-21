@@ -1,10 +1,10 @@
 ﻿namespace Hittahem.Mvc.Models
     
 {
-    public record HomeIndexViewModel
-    (
-        IList<Home> Homes,
-        IList<ApplicationUser> Users,
-        IList<HomeViewing> HomeViewings
-    );
+    public class HomeIndexViewModel
+    {
+        public List<Home> Homes { get; set; }
+        //IList<ApplicationUser> Users,
+        //IList<HomeViewing> HomeViewings
+    }
 }
