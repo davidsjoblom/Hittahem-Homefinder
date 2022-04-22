@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hittahem.Mvc.Data;
 using Hittahem.Mvc.Models;
+using Hittahem.Mvc.Enums;
+using Microsoft.CodeAnalysis.Options;
+using Newtonsoft.Json.Linq;
 
 namespace Hittahem.Mvc.Controllers
 {
@@ -53,7 +56,7 @@ namespace Hittahem.Mvc.Controllers
             return View();
         }
 
-        // POST: Realtor/Create
+        // POST: Realtor/CreateNewAnnouncement
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +64,8 @@ namespace Hittahem.Mvc.Controllers
         public async Task<IActionResult> Create([Bind("Id,Price,Description,Rooms,LivingArea,UninhabitableArea,GardenArea,BuildYear,TimePosted,Adress,HousingType,OwnershipType,Image,AgentId")] Home home)
         {
             if (ModelState.IsValid)
-            {
+            { 
+
                 _context.Add(home);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
