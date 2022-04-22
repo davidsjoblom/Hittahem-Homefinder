@@ -3,6 +3,12 @@
 @{
     ViewData["Title"] = "Confirm email";
 }
-
-<h1>@ViewData["Title"]</h1>
+<h1 class="text-header">Bekräfta din e-postadress</h1>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
+<div>
+    <!--<a asp-action="Login" class="btn-home-line">Logga in här</a>-->
+    <!--<button onclick="document.location='login.asp'">HTML Tutorial</button>-->
+    <form method="post">
+        <button type="submit" value="Login">Login</button>
+    </form>
+</div>
