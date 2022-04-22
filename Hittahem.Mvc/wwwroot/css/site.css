@@ -6,6 +6,10 @@ html {
     font-size: 20px;
     color: #783937FF;
 }
+.nav-link {
+    color: #783937FF;
+}
+
 .logga {
     width: 20px;
 }
