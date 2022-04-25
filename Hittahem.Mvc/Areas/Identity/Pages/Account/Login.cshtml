@@ -7,10 +7,20 @@
 
 @*<h1 class ="col-md-6 col-md-offset-2">@ViewData["Title"]</h1>*@
 <div class="row">
-    <div class="col-md-5 col-md-offset-2">
-        <section>
-            <h3 class="text-header">Ett smidigare sätt att Hitta Hem!</h3>
-            @*<hr />*@
+    <div class="col-md-5 p-md-4">
+        
+            <h1 class="text-header">Ett smidigare sätt att Hitta Hem!</h1>
+          
+             <ul style="text-align: start;" >
+                <li class="my-2">Skicka intresseanmälningar <i class="bi bi-check2-square"></i></li>
+                <li class="my-2">Spara dina favoriter <i class="bi bi-check2-square"></i></li>
+                <li class="my-2">Skapa kontakt med mäklare <i class="bi bi-check2-square"></i></li>
+             </ul>
+    </div>
+    <div class="col-md-7 col-md-offset-2 p-md-4">
+       
+            <h3 class="text-header">Logga in</h3>
+
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
@@ -35,7 +45,7 @@
                     </form>
                 }
             }
-        </section>
+       
             <form id="account" method="post">
                 <h5 class="text-header">eller</h5>
                <hr />
@@ -61,6 +71,8 @@
                 <div>
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-home my-3">Logga in</button>
                 </div>
+            </form>
+
                 <div>
                     <p>
                         <a id="forgot-password" asp-page="./ForgotPassword" class="text-decoration-none text-header">Glömt lösenordet?</a>
@@ -72,10 +84,8 @@
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation" class="text-decoration-none text-header">Skicka ny email-bekräftelse</a>
                     </p>
                 </div>
-            </form>
-           
-        
-    </div>
+            
+        </div>   
 </div>
 
 @section Scripts {
