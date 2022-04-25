@@ -27,6 +27,8 @@ namespace Hittahem.Mvc.Models
         public decimal? GardenArea { get; set; }
         [Display(Name = "Byggår")]
         public int? BuildYear { get; set; }
+
+        [Display(Name ="Annons datom och tid")]
         public DateTime? TimePosted { get; set; }
         public string? Adress { get; set; } //format t.ex: "kommun område gata gatunummer"
         [Display(Name = "Bostadstyp")]
