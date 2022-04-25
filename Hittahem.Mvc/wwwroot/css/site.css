@@ -20,6 +20,20 @@ a {
 .nav-link {
     color: #783937FF;
 }
+.nav-link {
+    color: #783937FF;
+}
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: #783937FF;
+    border-color: #1861ac;
+}
+
+.nav-link:hover {
+    color: black;
+}
+
 .logga {
     width: 20px;
 }
@@ -60,6 +74,7 @@ body {
     color: #783937FF;
 }
 
+/*Använd för att styla de automatiska knapparna*/
 .btn-primary {
     background-color: #783937FF;
     border: #783937FF;
@@ -69,6 +84,7 @@ body {
         background-color: #F1AC88FF;
         color: #783937FF;
     }
+
 /*Använd för att styla knappar med färg i*/
 .btn-home {
     color: #fff;
@@ -147,6 +163,10 @@ dd {
     list-style-type: none;
     margin-left: 1rem;
     margin-bottom: 1rem;
+}
+
+.form-floating {
+    width: 100%;
 }
 
 .footer-icons {
