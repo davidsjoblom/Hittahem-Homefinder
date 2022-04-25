@@ -236,7 +236,7 @@ namespace Hittahem.Mvc.Migrations
 
             migrationBuilder.InsertData(
                 table: "Homes",
-                columns: new[] { "Id", "Adress", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
+                columns: new[] { "Id", "Address", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
                 values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 0, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 8, 9, 26, 16, 346, DateTimeKind.Utc).AddTicks(564), null });
 
             migrationBuilder.InsertData(

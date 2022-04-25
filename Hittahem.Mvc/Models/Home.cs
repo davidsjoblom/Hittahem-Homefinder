@@ -28,7 +28,7 @@ namespace Hittahem.Mvc.Models
         [Display(Name = "Byggår")]
         public int? BuildYear { get; set; }
         public DateTime? TimePosted { get; set; }
-        public string? Adress { get; set; } //format t.ex: "kommun område gata gatunummer"
+        public string? Address { get; set; } //format t.ex: "kommun område gata gatunummer"
         [Display(Name = "Bostadstyp")]
         public HousingType HousingType { get; set; }
         [Display(Name = "Upplåtelseform")]

@@ -57,7 +57,7 @@ namespace Hittahem.Mvc.Controllers
             
             if (!string.IsNullOrEmpty(model.SearchString))
             {
-                homes = homes.Where(h => h.Adress.Contains(model.SearchString));
+                homes = homes.Where(h => h.Address.Contains(model.SearchString));
             }       
             
             switch (model.Area)
