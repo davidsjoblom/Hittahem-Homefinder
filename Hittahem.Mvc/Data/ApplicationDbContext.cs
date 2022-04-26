@@ -54,7 +54,7 @@ namespace Hittahem.Mvc.Data
             //seededUser.PasswordHash = passwordHasher.HashPassword(seededUser, @"Pa$$w0rd");
             builder.Entity<ApplicationUser>().HasData(seededUser);
 
-           
+
             builder.Entity<Home>()
                 .HasData(new Home
                 {
@@ -67,8 +67,9 @@ namespace Hittahem.Mvc.Data
                     Address = "stockholm gatuvägen 69",
                     AgentId = 1,
                     HousingType = Enums.HousingType.Lägenhet,
-                    OwnershipType = Enums.OwnershipType.Bostadsrätt
-                });
+                    OwnershipType = Enums.OwnershipType.Bostadsrätt,
+                    Image = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                }); ;
             builder.Entity<HomeViewing>()
                 .HasData(new HomeViewing
                 {
