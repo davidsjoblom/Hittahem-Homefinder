@@ -2,8 +2,22 @@ html {
     font-size: 16px;
 }
 
+a {
+    color: #0077cc;
+}
+
 .navbar-light .navbar-nav .nav-link {
     font-size: 20px;
+    color: #fff;
+}
+
+.nav-pills .nav-link.active {
+    color: #fff;
+    background-color: #783937FF;
+    border-color: #1861ac;
+}
+
+.nav-link {
     color: #783937FF;
 }
 .logga {
@@ -46,6 +60,15 @@ body {
     color: #783937FF;
 }
 
+.btn-primary {
+    background-color: #783937FF;
+    border: #783937FF;
+}
+
+    .btn-primary:hover {
+        background-color: #F1AC88FF;
+        color: #783937FF;
+    }
 /*Använd för att styla knappar med färg i*/
 .btn-home {
     color: #fff;

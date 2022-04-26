@@ -4,7 +4,7 @@ namespace Hittahem.Mvc.Models
 {
     public class SearchResultModel
     {
-        public List<Home> HouseResult { get; set; }
+        //public List<Home> HouseResult { get; set; }
         public string SearchString { get; set; }
 
         public int[] HousingType { get; set; }
@@ -13,6 +13,4 @@ namespace Hittahem.Mvc.Models
         public Price Price { get; set; }
         public Room Room { get; set; }
     }
-
-
 }

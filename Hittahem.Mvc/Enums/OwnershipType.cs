@@ -3,6 +3,6 @@
     public enum OwnershipType
     {
         Bostadsrätt,
-        Fastighet
+        Äganderätt
     }
 }

@@ -163,14 +163,14 @@ namespace Hittahem.Mvc.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
                     Rooms = table.Column<int>(type: "int", nullable: true),
                     LivingArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     UninhabitableArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     GardenArea = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     BuildYear = table.Column<int>(type: "int", nullable: true),
                     TimePosted = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Adress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     HousingType = table.Column<int>(type: "int", nullable: false),
                     OwnershipType = table.Column<int>(type: "int", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -236,13 +236,13 @@ namespace Hittahem.Mvc.Migrations
 
             migrationBuilder.InsertData(
                 table: "Homes",
-                columns: new[] { "Id", "Adress", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
-                values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 0, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 8, 9, 26, 16, 346, DateTimeKind.Utc).AddTicks(564), null });
+                columns: new[] { "Id", "Address", "AgentId", "BuildYear", "Description", "GardenArea", "HousingType", "Image", "LivingArea", "OwnershipType", "Price", "Rooms", "TimePosted", "UninhabitableArea" },
+                values: new object[] { 1, "stockholm gatuvägen 69", 1, null, "Fett trevligt jag svär", null, 1, null, 18.5m, 0, 1000000, 1, new DateTime(2022, 4, 25, 12, 50, 23, 186, DateTimeKind.Utc).AddTicks(6446), null });
 
             migrationBuilder.InsertData(
                 table: "HomeViewings",
                 columns: new[] { "Id", "Date", "HomeId" },
-                values: new object[] { 1, new DateTime(2022, 4, 8, 11, 26, 16, 346, DateTimeKind.Local).AddTicks(588), 1 });
+                values: new object[] { 1, new DateTime(2022, 4, 25, 14, 50, 23, 186, DateTimeKind.Local).AddTicks(6769), 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
