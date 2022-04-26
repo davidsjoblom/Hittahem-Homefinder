@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Hittahem.Mvc.Data;
 using Hittahem.Mvc.Models;
+using Microsoft.AspNetCore.Identity;
 using Hittahem.Mvc.Enums;
 using Microsoft.CodeAnalysis.Options;
 using Newtonsoft.Json.Linq;
+using System.Security.Claims;
 
 namespace Hittahem.Mvc.Controllers
 {
@@ -22,12 +24,14 @@ namespace Hittahem.Mvc.Controllers
         {
             _context = context;
         }
-
+        //Här skriver vi ut listan med hus för den userID som är samma som AgentID
         // GET: Realtor
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Homes.Include(h => h.Agent);
-            return View(await applicationDbContext.ToListAsync());
+            //var applicationDbContext = _context.Homes.Include(h => h.Agent);
+            var loggedinUserId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var list = _context.Homes.Where(h => h.AgentId == loggedinUserId).ToList();
+            return View(list);
         }
 
         // GET: Realtor/Details/5
@@ -38,9 +42,15 @@ namespace Hittahem.Mvc.Controllers
                 return NotFound();
             }
 
-            var home = await _context.Homes
-                .Include(h => h.Agent)
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //var home = await _context.Homes
+            //    .Include(h => h.Agent)
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+
+            var home = _context.Homes
+                .Where(h => h.Id == id)
+                .Include(h => h.InterestedUsers).ThenInclude(i => i.User)
+                .FirstOrDefault();
+
             if (home == null)
             {
                 return NotFound();

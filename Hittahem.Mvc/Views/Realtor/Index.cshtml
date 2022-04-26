@@ -4,12 +4,51 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
+<h1 class="text-header">Dina annonser</h1>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+
+ <div class="row">
+    @foreach (var home in Model)
+    {
+        <div class="col-md-6">
+            <div class="card card-index">
+                <a class="a-card-index" asp-action="Details" asp-route-id="@home.Id">
+                  
+                    @*lägg in bilder som är sparat på hus*@
+                    <img src="~/lib/Image/Husbild.jpg" class="card-img-top card-img">
+                   
+                         <div class="card-body col-md-6">
+                             <h4 class="card-title">@home.HousingType</h4>
+                             <p class="card-text">@home.Adress</p>
+                            
+                            @if (string.IsNullOrEmpty(home.Description) || home.Description.Count<char>() <= 26)
+                            {
+                                <p class="card-text">Ingen beskrivning av huset</p>
+                            }
+                            else
+                            {
+                                <p class="card-text">@home.Description.Substring(0,26)</p>
+                            }
+                            
+                         </div>
+
+                         <ul class="list-group list-group-flush">
+                            <li class="card-text">Utropspris: @home.Price.ToString("c")</li>
+                            <li class="card-text">Area: @home.LivingArea</li>
+                            <li class="card-text">Rum: @home.Rooms</li>
+                         </ul>
+                </a>
+           
+                 <a asp-action="Edit" asp-route-id="@home.Id">Edit</a>
+                 <a asp-action="Delete" asp-route-id="@home.Id">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+
+@*<table class="table">
     <thead>
         <tr>
             <th>
@@ -105,3 +144,4 @@
 }
     </tbody>
 </table>
+*@
