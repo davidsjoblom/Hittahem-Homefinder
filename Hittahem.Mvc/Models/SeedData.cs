@@ -24,7 +24,7 @@ namespace Hittahem.Mvc.Models
                         UninhabitableArea = 23,
                         GardenArea = 1230,
                         BuildYear = 1952,
-                        Adress = "Stockholmsvägen 3",
+                        Address = "Stockholmsvägen 3",
                         HousingType = Enums.HousingType.Villa,
                         OwnershipType = Enums.OwnershipType.Bostadsrätt,
                         Image = "/images/husbild.jpg"

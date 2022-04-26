@@ -17,7 +17,7 @@ namespace Hittahem.Mvc.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.3")
+                .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -116,7 +116,7 @@ namespace Hittahem.Mvc.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("AgentId")
@@ -126,7 +126,8 @@ namespace Hittahem.Mvc.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<decimal?>("GardenArea")
                         .HasColumnType("decimal(10,2)");
@@ -165,15 +166,15 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
-                            Adress = "stockholm gatuvägen 69",
+                            Address = "stockholm gatuvägen 69",
                             AgentId = 1,
                             Description = "Fett trevligt jag svär",
-                            HousingType = 0,
+                            HousingType = 1,
                             LivingArea = 18.5m,
                             OwnershipType = 0,
                             Price = 1000000,
                             Rooms = 1,
-                            TimePosted = new DateTime(2022, 4, 8, 10, 7, 4, 395, DateTimeKind.Utc).AddTicks(3284)
+                            TimePosted = new DateTime(2022, 4, 25, 12, 50, 23, 186, DateTimeKind.Utc).AddTicks(6446)
                         });
                 });
 
@@ -201,7 +202,7 @@ namespace Hittahem.Mvc.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 4, 8, 12, 7, 4, 395, DateTimeKind.Local).AddTicks(3298),
+                            Date = new DateTime(2022, 4, 25, 14, 50, 23, 186, DateTimeKind.Local).AddTicks(6769),
                             HomeId = 1
                         });
                 });

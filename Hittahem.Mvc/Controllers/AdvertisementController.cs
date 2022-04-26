@@ -57,7 +57,7 @@ namespace Hittahem.Mvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Price,Description,Rooms,LivingArea,UninhabitableArea,GardenArea,BuildYear,TimePosted,Adress,HousingType,OwnershipType,Image,AgentId")] Home home)
+        public async Task<IActionResult> Create([Bind("Id,Price,Description,Rooms,LivingArea,UninhabitableArea,GardenArea,BuildYear,TimePosted,Address,HousingType,OwnershipType,Image,AgentId")] Home home)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Hittahem.Mvc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Price,Description,Rooms,LivingArea,UninhabitableArea,GardenArea,BuildYear,TimePosted,Adress,HousingType,OwnershipType,Image,AgentId")] Home home)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Price,Description,Rooms,LivingArea,UninhabitableArea,GardenArea,BuildYear,TimePosted,Address,HousingType,OwnershipType,Image,AgentId")] Home home)
         {
             if (id != home.Id)
             {

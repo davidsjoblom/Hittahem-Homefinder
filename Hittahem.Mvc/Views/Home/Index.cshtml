@@ -107,8 +107,9 @@
                 <a class="a-card-index" asp-controller="Advertisement" asp-action="Details" asp-route-id="@home.Id">
                   
                     @*lägg in bilder som är sparat på hus*@
-                    <img src="~/lib/Image/Husbild.jpg" class="card-img-top card-img">
-                   
+                    <div class="card-body col-6">
+                    <img src="@home.Image class="card-img-top card-img">
+                    </div>
                          <div class="card-body col-md-6">
                              <h4 class="card-title">@home.HousingType</h4>
                              @*för att det inte ska bli fel så måste första meningen innehålla 26 eller fler char i beskrivning.*@

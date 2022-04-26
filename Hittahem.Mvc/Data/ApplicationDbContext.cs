@@ -54,30 +54,7 @@ namespace Hittahem.Mvc.Data
             //seededUser.PasswordHash = passwordHasher.HashPassword(seededUser, @"Pa$$w0rd");
             builder.Entity<ApplicationUser>().HasData(seededUser);
 
-            //builder.Entity<HousingType>()
-            //    .HasData(new HousingType
-            //    {
-            //        Id=1,
-            //        Name = "Lägenhet"
-            //    });
-            //builder.Entity<OwnershipType>()
-            //    .HasData(new OwnershipType
-            //    {
-            //        Id = 1,
-            //        Name = "Bostadsrätt"
-            //    });
-            //builder.Entity<Municipality>()
-            //    .HasData(new Municipality
-            //    {
-            //        Id = 1,
-            //        Name = "Stockholm"
-            //    });
-            //builder.Entity<Street>()
-            //    .HasData(new Street
-            //    {
-            //        Id = 1,
-            //        Name = "Stockholmsvägen"
-            //    });
+
             builder.Entity<Home>()
                 .HasData(new Home
                 {
@@ -87,11 +64,12 @@ namespace Hittahem.Mvc.Data
                     Rooms = 1,
                     LivingArea = 18.5m,
                     TimePosted = DateTime.UtcNow,
-                    Adress = "stockholm gatuvägen 69",
+                    Address = "stockholm gatuvägen 69",
                     AgentId = 1,
                     HousingType = Enums.HousingType.Lägenhet,
-                    OwnershipType = Enums.OwnershipType.Bostadsrätt
-                });
+                    OwnershipType = Enums.OwnershipType.Bostadsrätt,
+                    Image = "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                }); ;
             builder.Entity<HomeViewing>()
                 .HasData(new HomeViewing
                 {
