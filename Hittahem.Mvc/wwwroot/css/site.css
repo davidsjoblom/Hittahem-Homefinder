@@ -107,19 +107,16 @@ body {
     border-color: #783937FF;
 }
 
-.img-frontpage {
-    height: auto;
-}
-
 .img-house {
     width: 35rem;
     margin-top: 1rem;
 }
 
-.card-img{
-    width: 100%;
+/*.card-img-size{
+    width: 500px;
+    height: 500px;
     object-fit: cover;
-}
+}*/
 .card-index{
     width: 30rem;
     margin-top: 10%;

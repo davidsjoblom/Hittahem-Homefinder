@@ -11,7 +11,9 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="~/lib/Image/Husbild.jpg" alt="..." /></a>
+                         <div class="card-body">
+                            <img src="@Model.Image" class="card-img-top"/>
+                         </div> 
                         <div class="card-body">
                              <div><h5>@Html.DisplayFor(model => model.HousingType)</h5></div>
                             <div><h5>Utropspris @Html.DisplayFor(model => model.Price)</h5></div>
@@ -97,8 +99,8 @@
 </div>
 
 <div>
-    <a asp-action="Edit" style="text-decoration: none;" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index" style="text-decoration: none;"> Back to List </a>
+    <a asp-action="Edit" style="text-decoration: none; color: black;" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index" style="text-decoration: none; color: black;"> Back to List </a>
 </div>
 
 

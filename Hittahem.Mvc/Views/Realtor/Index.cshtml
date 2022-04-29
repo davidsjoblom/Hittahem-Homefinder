@@ -6,7 +6,7 @@
 
 <h1 class="text-header">Dina annonser</h1>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="text-decoration: none; color: black;" class="btn">Create New</a>
 </p>
 
  <div class="row">
@@ -16,8 +16,9 @@
             <div class="card card-index">
                 <a class="a-card-index" asp-action="Details" asp-route-id="@home.Id">
                   
-                    @*lägg in bilder som är sparat på hus*@
-                    <img src="~/lib/Image/Husbild.jpg" class="card-img-top card-img">
+                     <div class="card-body">
+                            <img src="@home.Image" class="card-img-top"/>
+                         </div> 
                    
                          <div class="card-body col-md-6">
                              <h4 class="card-title">@home.HousingType</h4>
@@ -41,8 +42,8 @@
                          </ul>
                 </a>
            
-                 <a asp-action="Edit" asp-route-id="@home.Id">Edit</a>
-                 <a asp-action="Delete" asp-route-id="@home.Id">Delete</a>
+                 <a asp-action="Edit" asp-route-id="@home.Id" style="text-decoration: none; color: black;">Edit</a>
+                 <a asp-action="Delete" asp-route-id="@home.Id" style="text-decoration: none; color: black;">Delete</a>
             </div>
         </div>
     }
