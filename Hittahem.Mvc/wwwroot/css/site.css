@@ -80,10 +80,10 @@ body {
     border: #783937FF;
 }
 
-    .btn-primary:hover {
-        background-color: #F1AC88FF;
-        color: #783937FF;
-    }
+.btn-primary:hover {
+    background-color: #F1AC88FF;
+    color: #783937FF;
+}
 
 /*Använd för att styla knappar med färg i*/
 .btn-home {
